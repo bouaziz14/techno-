@@ -1,0 +1,33 @@
+public int solution (int[] a) {
+
+
+	        if (a.length == 0) {
+	            return 0;
+	        }
+	        int sum = 0;
+	        int max =0;
+	        
+	        for (int i = 0; i < a.length; i++) {
+	            final int val= a[i];
+	            sum += val;
+	            if (max < val) {
+	                max = val;
+	            }
+	            a[i] = val;
+	        }
+
+	        final int[] count = new int[max + 1];
+	        for (int val: a) {
+	            count [val]++;
+
+	        }
+	        int rlt = sum;
+
+
+	        for (int i = 0; i < r.length / 2 + 1; i++) {
+	            if (r[i] >= 0 && rlt > sum - 2 * i) {
+	                rlt = sum - 2 * i;
+	            }
+	        }
+	        return rlt;
+	    }
