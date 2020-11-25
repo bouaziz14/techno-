@@ -1,0 +1,53 @@
+Class Solution {
+
+	      public int[] Solution(int[] a, int[] b) {
+	
+	        int[] valeur = new int[a.length];
+	
+	        int val1 = getMax(a);
+	        int val2= getMax(b);
+	
+	        int[]  ValSave = save(val1, val2);
+	
+	        for (int i = 0; i<a.length; i++) {
+	            valeur [i] = ValSave [a[i]] % (int) Math.pow(2, b[i]);
+	        }
+	
+	        return valeur;
+	    }
+	
+	    private static int getMax(int[] tab) {
+	        int max = array[0];
+	
+	        for (int i = 0; i<tab.length; i++) {
+	            if (tab[i] > max) {
+	                max = tab[i];
+	            }
+	        }
+	
+	        return max;
+	    }
+	
+	    public static int[]save (int t1, int t2) {
+	        int[]ValSave = new int[t1+1];
+	        int pres  = 1;
+	        int courant = 1;
+	
+	        ValSave [0] = 1;
+	        ValSave [1] = 1;
+	
+	        int pos = 3;
+	
+	        while (pos <= n+1){
+	            int temp = courant;
+	            courant = (pres  + courant)  % (int) Math.pow(2, t2);
+	            pres  = temp;
+	
+	            ValSave [pos-1] = courant;
+	
+	            pos++;
+	        }
+	
+	        return ValSave;
+	    }
+	}
