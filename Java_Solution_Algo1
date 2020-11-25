@@ -1,0 +1,49 @@
+public int[] solution(int N, int[] A)
+{
+    var count = new Count (N);
+
+    for (int i = 0; i < A.Length; i++)
+    {
+        if (A[i] <= N)
+            count.Increase (A[i]);
+        else
+            count.Max ();
+    }
+
+    return count.ToArray();
+}
+
+public class Count
+{
+    private int[] Tabcount;
+    private int maxValeur = 0;
+ 	// Constructeur
+    public Count (int taille)
+    {
+        Tabcount = new int[taille];
+    }
+
+    public void Max ()
+    {
+        for (int i = 0; i < Tabcount.Length; i++)
+        {
+            Tabcount [i] = maxValeur;
+        }
+    }
+
+    public void Increase (int position)
+    {
+        position--;
+
+        Tabcount [position]++;
+
+        if (Tabcount [position] > maxValeur)
+            maxValeur = Tabcount [position];
+    }
+
+    
+    public int[] ToArray()
+    {
+        return (int[])Tabcount.Clone();
+    }
+} 
